@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Yukti, My Love 💖✨</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- JS Libraries: Canvas Confetti & Tone.js -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pastelPink: '#FFD1DC',
+            pastelLavender: '#E6E6FA',
+            pastelPeach: '#FFDAD5',
+            pastelCream: '#FFF0F5',
+            pastelYellow: '#FFF5BA',
+            pastelRose: '#FFB7B2',
+            deepRose: '#FF4D6D',
+            romanticRed: '#C9184A',
+            vintageGold: '#D4AF37'
+          },
+          fontFamily: {
+            fredoka: ['Fredoka', 'sans-serif'],
+            nunito: ['Nunito', 'sans-serif'],
+            pacifico: ['Pacifico', 'cursive'],
+            dancing: ['Dancing Script', 'cursive'],
+            caveat: ['Caveat', 'cursive'],
+            playfair: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 35%, #E6E6FA 70%, #FFDAD5 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF0F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FFB7B2;
+      border-radius: 10px;
+    }
+
+    /* Floating Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* Candle Flame Animation */
+    @keyframes flicker {
+      0%, 100% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+      25% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+      50% { transform: scale(0.95) rotate(-1deg); opacity: 0.85; }
+      75% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+    }
+    .flame {
+      animation: flicker 0.6s infinite alternate;
+      transform-origin: bottom center;
+    }
+
+    /* Audio Waveform Bars */
+    .wave-bar {
+      transition: height 0.2s ease;
+    }
+    .playing .wave-bar {
+      animation: wave 0.8s ease-in-out infinite alternate;
+    }
+    .playing .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .playing .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .playing .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .playing .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+    
+    @keyframes wave {
+      0% { height: 6px; }
+      100% { height: 28px; }
+    }
+
+    /* Floating Background Stickers Container */
+    #sticker-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .floating-sticker {
+      position: absolute;
+      user-select: none;
+      opacity: 0.7;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+    }
+
+    /* Polaroid Tape Effect */
+    .tape-accent {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 80px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(2px);
+      border: 1px dashed rgba(255, 182, 193, 0.9);
+      z-index: 20;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Shimmer Text Effect */
+    .shimmer-text {
+      background: linear-gradient(90deg, #ff4d6d, #c9184a, #ff758f, #ff4d6d);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+  </style>
+</head>
+<body class="relative min-h-screen text-slate-700">
+
+  <!-- FLOATING BACKGROUND STICKERS & PARTICLES -->
+  <div id="sticker-bg"></div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 py-8 space-y-16">
+
+    <!-- 1. HEADER SECTION -->
+    <header class="text-center pt-8 pb-4 relative">
+      <!-- Special Ribbon Badge -->
+      <div class="inline-block bg-white/90 backdrop-blur-md px-6 py-2 rounded-full shadow-md border border-pink-200 mb-6 animate-float">
+        <span class="text-deepRose font-bold text-sm tracking-wider uppercase flex items-center gap-2">
+          <span>✨</span> Happy Birthday Celebration <span>💖</span>
+        </span>
+      </div>
+
+      <!-- Main Birthday Heading (Exact 2-Line Layout) -->
+      <div class="space-y-1 my-2">
+        <h1 class="font-pacifico text-4xl sm:text-6xl md:text-7xl text-deepRose drop-shadow-sm leading-tight">
+          Happy Birthday Yukti
+        </h1>
+        <h2 class="font-dancing text-4xl sm:text-5xl md:text-6xl shimmer-text font-bold leading-tight">
+          My Love 💕
+        </h2>
+      </div>
+
+      <p class="font-fredoka text-lg md:text-xl text-purple-800/80 max-w-xl mx-auto mt-6 mb-8 px-4">
+        Wishing the most incredible girl a day filled with infinite sweetness, romantic magic, warm hugs, and pure joy! 🌸✨
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 items-center">
+        <button id="poppers-btn" onclick="triggerPartyPopper()" class="bg-gradient-to-r from-pink-500 via-deepRose to-romanticRed hover:from-pink-600 hover:to-red-600 text-white font-fredoka font-semibold px-7 py-3.5 rounded-full shadow-lg hover:shadow-pink-400/50 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2.5 group text-lg">
+          <i class="fa-solid fa-wand-magic-sparkles text-yellow-200 group-hover:rotate-12 transition-transform"></i>
+          <span>Party Popper! 🎉</span>
+        </button>
+
+        <button id="quick-music-btn" onclick="toggleMusic()" class="bg-white hover:bg-pink-50 text-deepRose font-fredoka font-semibold px-7 py-3.5 rounded-full shadow-md border border-pink-200 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2.5 text-lg">
+          <i id="quick-music-icon" class="fa-solid fa-heart text-pink-500 animate-pulse"></i>
+          <span id="quick-music-text">Play Birthday Anthem 🎵</span>
+        </button>
+      </div>
+    </header>
+
+
+    <!-- 2. FEATURED TRACK / BIRTHDAY ANTHEM SECTION -->
+    <section class="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-rose-500/10 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-xl border border-pink-200">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        
+        <!-- Vinyl Record / Retro Player Card -->
+        <div class="w-56 h-56 bg-gradient-to-br from-pink-200 via-rose-300 to-purple-300 rounded-3xl shadow-xl flex flex-col items-center justify-center relative overflow-hidden shrink-0 border-4 border-white">
+          <div class="w-40 h-40 rounded-full bg-slate-900 border-4 border-rose-200 shadow-2xl flex items-center justify-center" id="vinyl-disc">
+            <div class="w-16 h-16 bg-gradient-to-tr from-pink-400 to-rose-500 rounded-full border-2 border-white flex flex-col items-center justify-center text-center p-1">
+              <i class="fa-solid fa-compact-disc text-white text-xs"></i>
+              <span class="text-[9px] text-white font-bold tracking-tighter uppercase mt-0.5">Yukti 💖</span>
+            </div>
+          </div>
+          <span class="absolute bottom-2 text-xs font-bold text-deepRose bg-white/95 px-3 py-0.5 rounded-full shadow-sm">
+            Boy in Love 🎷
+          </span>
+        </div>
+
+        <!-- Song Details & Interactive Player -->
+        <div class="flex-1 w-full space-y-4 text-center md:text-left">
+          <div>
+            <span class="bg-deepRose/10 text-deepRose text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-pink-200">
+              Official Birthday Anthem 💖
+            </span>
+            <h3 class="font-pacifico text-3xl md:text-4xl text-deepRose mt-2">Boy in Love</h3>
+            <p class="text-base text-purple-800 font-semibold mt-0.5">Elliot James Reay • 2025</p>
+          </div>
+
+          <!-- Featured Quote / Summary -->
+          <div class="bg-white/70 p-3 rounded-xl border border-pink-100 text-slate-600 text-sm italic font-playfair">
+            "She got me good... I feel like a boy in love." ✨
+          </div>
+      <!-- Polaroid Cards Grid with requested titles -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-4">
+        
+        <!-- Polaroid Card 1: My Cutie -->
+        <div onclick="openMemoryModal(0)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300 cursor-pointer border border-pink-100 relative">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-pink-100 to-rose-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-pink-300 group-hover:border-pink-400 transition-colors">
+            <img id="img-slot-0" src="https://lh3.googleusercontent.com/ggms/AF1QipN3-98x6M5Y3v3L8O-YQ92q49fQ1o005S3g04_0=s1024" alt="My Cutie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-pink-500 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Cutie 💕</p>
+          <p class="text-xs text-center text-pink-400 mt-0.5">Yukti's Precious Smile</p>
+        </div>
+
+        <!-- Polaroid Card 2: My Kuchupuchu -->
+        <div onclick="openMemoryModal(1)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:-rotate-2 transition-all duration-300 cursor-pointer border border-pink-100 relative">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-purple-100 to-pink-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-purple-300 group-hover:border-purple-400 transition-colors">
+            <img id="img-slot-1" src="https://lh3.googleusercontent.com/ggms/AF1QipMwSg7w37QpYF7kY4_g00s2xY_Y91Y8Q3715Q9g=s1024" alt="My Kuchupuchu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-purple-500 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Kuchupuchu 🌟</p>
+          <p class="text-xs text-center text-purple-400 mt-0.5">Chai Time Sweetness</p>
+        </div>
+
+        <!-- Polaroid Card 3: My Babyyy -->
+        <div onclick="openMemoryModal(2)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-2 transition-all duration-300 cursor-pointer border border-pink-100 relative sm:col-span-2 md:col-span-1">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-amber-100 to-pink-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-amber-300 group-hover:border-amber-400 transition-colors">
+            <img id="img-slot-2" src="https://lh3.googleusercontent.com/ggms/AF1QipN3R91YQ00_y83_q1238Q_Z01Y94528_YQ3580g=s1024" alt="My Babyyy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-amber-600 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Babyyy 🧸</p>
+          <p class="text-xs text-center text-amber-500 mt-0.5">Garden Sunshine Pose</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 3. INTERACTIVE MEMORY GALLERY / POLAROID JAR -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-xl border border-pink-100">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 text-deepRose font-pacifico text-3xl mb-1">
+          <span>🌸</span> Memory Gallery For Yukti <span>🌸</span>
+        </div>
+        <p class="text-slate-500 font-nunito text-sm md:text-base max-w-md mx-auto">
+          Click any polaroid frame to expand details or upload Yukti's photo!
+        </p>
+      </div>
+
+      <!-- Polaroid Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-4">
+        
+        <!-- Polaroid Card 1: My Cutie -->
+        <div onclick="openMemoryModal(0)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition-all duration-300 cursor-pointer border border-pink-100 relative">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-pink-100 to-rose-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-pink-300 group-hover:border-pink-400 transition-colors">
+            <img id="img-slot-0" src="https://placehold.co/600x600/FFF0F5/FF4D6D?text=My+Cutie+%F0%9F%93%B8" alt="My Cutie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-pink-500 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Cutie 💕</p>
+          <p class="text-xs text-center text-pink-400 mt-0.5">Photo Slot 1</p>
+        </div>
+
+        <!-- Polaroid Card 2: My Kuchupuchu -->
+        <div onclick="openMemoryModal(1)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:-rotate-2 transition-all duration-300 cursor-pointer border border-pink-100 relative">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-purple-100 to-pink-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-purple-300 group-hover:border-purple-400 transition-colors">
+            <img id="img-slot-1" src="https://placehold.co/600x600/E6E6FA/9370DB?text=My+Kuchupuchu+%E2%9C%A8" alt="My Kuchupuchu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-purple-500 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Kuchupuchu 🌟</p>
+          <p class="text-xs text-center text-purple-400 mt-0.5">Photo Slot 2</p>
+        </div>
+
+        <!-- Polaroid Card 3: My Babyyy -->
+        <div onclick="openMemoryModal(2)" class="group bg-white p-4 pt-6 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-2 transition-all duration-300 cursor-pointer border border-pink-100 relative sm:col-span-2 md:col-span-1">
+          <div class="tape-accent"></div>
+          <div class="overflow-hidden rounded-xl bg-gradient-to-br from-amber-100 to-pink-200 aspect-square mb-3 relative flex flex-col items-center justify-center border-2 border-dashed border-amber-300 group-hover:border-amber-400 transition-colors">
+            <img id="img-slot-2" src="https://placehold.co/600x600/FFF5BA/FF4D6D?text=My+Babyyy+%F0%9F%8C%B8" alt="My Babyyy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 bg-white/90 px-2.5 py-1 rounded-full text-xs font-bold text-amber-600 shadow">✨ Tap to view</span>
+          </div>
+          <p class="font-fredoka text-center text-slate-700 font-medium text-lg">My Babyyy 🧸</p>
+          <p class="text-xs text-center text-amber-500 mt-0.5">Photo Slot 3</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 4. UNFOLDING LOVE LETTER SECTION FOR YUKTI BY MANU -->
+    <section class="max-w-2xl mx-auto text-center">
+      <div class="mb-6">
+        <h2 class="font-pacifico text-3xl text-deepRose">A Birthday Letter For Yukti ✉️💕</h2>
+        <p class="text-slate-500 text-sm mt-1">Tap the envelope below to open your romantic letter!</p>
+      </div>
+
+      <div id="envelope-card" onclick="toggleLetter()" class="cursor-pointer bg-gradient-to-br from-pink-300 via-rose-300 to-pink-400 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden group border-2 border-white">
+        
+        <div class="absolute top-4 right-4 bg-white/90 p-2 rounded-xl shadow-sm border border-pink-300 text-xs font-bold text-pink-600 rotate-6">
+          FOR YUKTI 💌
+        </div>
+        
+        <div id="envelope-icon" class="text-6xl text-white my-4 transition-transform duration-500 group-hover:scale-110">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        
+        <h3 id="letter-status" class="font-fredoka text-2xl text-white font-semibold mb-1">Tap To Unfold Love Note</h3>
+        <p id="letter-subtext" class="text-white/90 text-sm font-medium">Sealed with infinite affection & hugs 💖</p>
+
+        <!-- Unfolded Letter Content -->
+        <div id="letter-content" class="hidden mt-6 bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-inner text-left text-slate-700 space-y-4 font-caveat border border-pink-100 transition-all duration-500">
+          <div class="flex justify-between items-center border-b border-pink-100 pb-3">
+            <span class="font-dancing text-3xl text-deepRose font-bold">Happppyyyy Birthdayyyy My Love ,</span>
+            <span class="text-xs text-pink-400 font-bold bg-pink-50 px-2.5 py-1 rounded-full border border-pink-100 font-nunito">From Manu 💖</span>
+          </div>
+          
+          <!-- Exact Letter Text -->
+          <p class="text-2xl md:text-3xl text-slate-800 leading-snug tracking-wide">
+            Happppyyyy Birthdayyyy My Love , I Love Youuuu soo soo soo muchhhh , i cannot even express how happy i m to have you in my life my life genuinely changed in a positive way after meeting you , although i m not perfect but i would keep on doing efforts to always keep you happy and would give my all to make you smile , would never do something that makes you unhappy and if i did please forgive me babyyyyyy , i hope you like this website that i have made . MWAHHHHHHHHHHHHHH
+          </p>
+
+          <div class="pt-4 border-t border-pink-100 flex justify-between items-end">
+            <div>
+              <p class="font-dancing text-3xl text-deepRose font-bold">- by Manu</p>
+            </div>
+            <span class="text-3xl">🌹✨💖</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. INTERACTIVE CAKE & CANDLE SIMULATOR -->
+    <section class="bg-gradient-to-b from-purple-100/70 via-pink-100/70 to-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-purple-100 text-center relative overflow-hidden">
+      <div class="mb-2">
+        <h2 class="font-pacifico text-3xl text-purple-800">Blow The Birthday Candles! 🎂</h2>
+        <p class="text-slate-600 font-nunito text-sm md:text-base mt-1">Make a wish for Yukti and click the flames to blow them out!</p>
+      </div>
+
+      <!-- Interactive Cake Visual -->
+      <div class="my-8 flex justify-center items-center">
+        <div class="relative w-64 h-64 flex flex-col items-center justify-end">
+          
+          <!-- Candle Flames & Sticks -->
+          <div class="flex justify-center gap-6 mb-1 z-20">
+            <!-- Candle 1 -->
+            <div onclick="blowOutCandle(this)" class="candle cursor-pointer flex flex-col items-center group">
+              <div class="flame w-4 h-6 bg-gradient-to-t from-orange-500 via-yellow-400 to-yellow-100 rounded-full shadow-[0_0_12px_#f59e0b]"></div>
+              <div class="w-3 h-12 bg-gradient-to-r from-pink-300 to-pink-400 rounded-sm shadow-sm border-t-2 border-amber-800/40"></div>
+            </div>
+            <!-- Candle 2 -->
+            <div onclick="blowOutCandle(this)" class="candle cursor-pointer flex flex-col items-center group">
+              <div class="flame w-4 h-6 bg-gradient-to-t from-orange-500 via-yellow-400 to-yellow-100 rounded-full shadow-[0_0_12px_#f59e0b]"></div>
+              <div class="w-3 h-14 bg-gradient-to-r from-purple-300 to-purple-400 rounded-sm shadow-sm border-t-2 border-amber-800/40"></div>
+            </div>
+            <!-- Candle 3 -->
+            <div onclick="blowOutCandle(this)" class="candle cursor-pointer flex flex-col items-center group">
+              <div class="flame w-4 h-6 bg-gradient-to-t from-orange-500 via-yellow-400 to-yellow-100 rounded-full shadow-[0_0_12px_#f59e0b]"></div>
+              <div class="w-3 h-12 bg-gradient-to-r from-yellow-200 to-yellow-300 rounded-sm shadow-sm border-t-2 border-amber-800/40"></div>
+            </div>
+          </div>
+
+          <!-- Cake Top Layer -->
+          <div class="w-48 h-16 bg-gradient-to-r from-pink-300 via-pink-200 to-pink-300 rounded-t-3xl border-b-4 border-pink-400 relative shadow-md flex justify-around items-center px-4">
+            <span class="text-xl">🍓</span>
+            <span class="text-xl">💖</span>
+            <span class="text-xl">🍓</span>
+          </div>
+
+          <!-- Cake Middle Layer -->
+          <div class="w-56 h-16 bg-gradient-to-r from-purple-200 via-purple-100 to-purple-200 border-b-4 border-purple-300 relative shadow-md flex justify-between items-center px-6">
+            <div class="w-4 h-4 bg-white rounded-full opacity-70"></div>
+            <div class="w-4 h-4 bg-white rounded-full opacity-70"></div>
+            <div class="w-4 h-4 bg-white rounded-full opacity-70"></div>
+            <div class="w-4 h-4 bg-white rounded-full opacity-70"></div>
+          </div>
+
+          <!-- Cake Base Layer -->
+          <div class="w-64 h-20 bg-gradient-to-r from-amber-100 via-amber-200 to-amber-100 rounded-b-2xl shadow-lg relative flex justify-center items-center">
+            <span class="font-dancing text-deepRose text-2xl font-bold">Yukti's Cake ✨</span>
+          </div>
+
+          <!-- Plate -->
+          <div class="w-72 h-4 bg-slate-200 rounded-full shadow-lg border-b-2 border-slate-300 mt-1"></div>
+        </div>
+      </div>
+
+      <!-- Relight Button -->
+      <button onclick="relightCandles()" class="bg-white hover:bg-pink-50 text-purple-700 font-fredoka px-5 py-2.5 rounded-full border border-purple-200 shadow-sm hover:shadow transition-all text-sm inline-flex items-center gap-2">
+        <i class="fa-solid fa-fire text-amber-500"></i> Relight Candles
+      </button>
+    </section>
+
+
+    <!-- 6. COMPLIMENT DECK: "REASONS I LOVE YOU, YUKTI" -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-pink-100 text-center">
+      <h2 class="font-pacifico text-3xl text-deepRose mb-1">Reasons I Love You, Yukti 💖</h2>
+      <p class="text-slate-500 text-sm mb-6">Click the card deck below to reveal sweet notes and surprises!</p>
+
+      <div class="max-w-md mx-auto">
+        <div id="gift-box" class="bg-gradient-to-br from-pink-100 via-purple-50 to-rose-100 p-6 rounded-2xl border-2 border-dashed border-pink-300 min-h-[150px] flex flex-col items-center justify-center mb-6 shadow-inner transition-all duration-300">
+          <span id="gift-emoji" class="text-5xl mb-2 animate-bounce">💌</span>
+          <p id="gift-text" class="font-fredoka text-slate-700 text-lg">Click the magic button to draw a love card!</p>
+        </div>
+
+        <button onclick="generateSurprise()" class="bg-gradient-to-r from-pink-500 via-deepRose to-romanticRed hover:from-pink-600 hover:to-red-600 text-white font-fredoka font-semibold px-8 py-3.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-lg flex items-center gap-2 mx-auto">
+          <i class="fa-solid fa-heart"></i> Draw A Love Card!
+        </button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 text-slate-500 font-nunito text-sm">
+      <p class="flex items-center justify-center gap-1.5">
+        Designed with endless <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i> for Yukti by Manu.
+      </p>
+    </footer>
+
+  </div>
+
+
+  <!-- MEMORY MODAL / LIGHTBOX -->
+  <div id="memory-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl relative border border-pink-100">
+      <button onclick="closeMemoryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      
+      <div class="overflow-hidden rounded-2xl mb-4 max-h-72 border border-pink-100 relative">
+        <img id="modal-img" src="" alt="Memory" class="w-full h-full object-cover">
+      </div>
+
+      <h3 id="modal-title" class="font-fredoka text-2xl text-deepRose mb-1">Memory Title</h3>
+      <p id="modal-desc" class="text-slate-600 leading-relaxed font-nunito text-sm mb-4">Memory Description details...</p>
+
+      <!-- Custom Photo Upload Button -->
+      <div class="bg-pink-50 p-3 rounded-xl border border-pink-200 mb-4 flex items-center justify-between">
+        <span class="text-xs text-pink-600 font-bold">Replace with real photo:</span>
+        <label class="bg-deepRose hover:bg-rose-600 text-white font-fredoka text-xs px-3 py-1.5 rounded-lg cursor-pointer transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-upload"></i> Upload Photo
+          <input type="file" accept="image/*" class="hidden" onchange="uploadCustomPhoto(event)">
+        </label>
+      </div>
+
+      <div class="flex justify-between items-center pt-2 border-t border-slate-100">
+        <span class="text-xs text-pink-400 font-bold">💖 Reserved for Yukti</span>
+        <button onclick="closeMemoryModal()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-fredoka px-6 py-2 rounded-full text-sm shadow transition-colors">
+          Close 💕
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* ==========================================================================
+       1. DATA & STATE MANAGEMENT
+       ========================================================================== */
+    const memoryData = [
+      {
+        title: "My Cutie 💕",
+        image: "https://lh3.googleusercontent.com/ggms/AF1QipN3-98x6M5Y3v3L8O-YQ92q49fQ1o005S3g04_0=s1024",
+        desc: "Yukti looking absolute adorable in her yellow outfit! That sweet smile lights up every room and brings warmth to my heart."
+      },
+      {
+        title: "My Kuchupuchu 🌟",
+        image: "https://lh3.googleusercontent.com/ggms/AF1QipMwSg7w37QpYF7kY4_g00s2xY_Y91Y8Q3715Q9g=s1024",
+        desc: "A precious chai date moment! Her sparkling eyes and lovely smile make every single moment together so magical."
+      },
+      {
+        title: "My Babyyy 🧸",
+        image: "https://lh3.googleusercontent.com/ggms/AF1QipN3R91YQ00_y83_q1238Q_Z01Y94528_YQ3580g=s1024",
+        desc: "My gorgeous girl posing in the garden! Celebrating her beautiful, kind heart and cute personality."
+      }
+    ];
+
+    const loveNotes = [
+      { emoji: "💖", text: "Reason #1: Your sweet laugh is my favorite melody in the world!" },
+      { emoji: "🌹", text: "Reason #2: You have the kindest, softest, and most caring heart." },
+      { emoji: "✨", text: "Reason #3: Just thinking of you makes every day ten times brighter!" },
+      { emoji: "👑", text: "Reason #4: You are truly one of a kind, my absolute favorite person!" },
+      { emoji: "🧸", text: "Reason #5: Your hugs feel like coming home to pure warmth." },
+      { emoji: "🍦", text: "Sweet Note: You deserve all the happiness, treats, and love in the world!" }
+    ];
+
+    const songLyrics = [
+      "\"Never been easy to please, always been best on my own...\" 🎵",
+      "\"She got me good... I feel like a boy in love.\" 💕",
+      "\"Mercy please! Suddenly I'm crawling to her on my knees...\" 🌹",
+      "\"She makes me feel like a boy when I shouldn't...\" ✨"
+    ];
+
+    let lyricIndex = 0;
+    let isPlayingMusic = false;
+    let synth = null;
+    let lyricInterval = null;
+    let songProgressInterval = null;
+    let secondsElapsed = 0;
+
+    /* ==========================================================================
+       2. STICKER & PARTICLE BACKGROUND GENERATOR
+       ========================================================================== */
+    function initFloatingStickers() {
+      const container = document.getElementById('sticker-bg');
+      const stickerEmojis = ['💖', '✨', '🌹', '🌸', '🧸', '⭐', '🎀', '🍰', '💌', '☁️'];
+      const count = 22;
+
+      for (let i = 0; i < count; i++) {
+        const sticker = document.createElement('div');
+        sticker.className = 'floating-sticker';
+        sticker.innerText = stickerEmojis[Math.floor(Math.random() * stickerEmojis.length)];
+        
+        sticker.style.left = `${Math.random() * 95}%`;
+        sticker.style.top = `${Math.random() * 95}%`;
+        sticker.style.fontSize = `${Math.random() * 22 + 18}px`;
+        
+        const duration = Math.random() * 5 + 4;
+        const delay = Math.random() * 3;
+        sticker.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+        container.appendChild(sticker);
+      }
+    }
+
+    /* ==========================================================================
+       3. CONFETTI & POPPERS
+       ========================================================================== */
+    function triggerPartyPopper() {
+      playPopperSound();
+
+      confetti({
+        particleCount: 110,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#FFD1DC', '#FF4D6D', '#C9184A', '#FFF5BA', '#9370DB']
+      });
+    }
+
+    function playPopperSound() {
+      try {
+        const pSynth = new Tone.MembraneSynth().toDestination();
+        pSynth.triggerAttackRelease("C2", "8n");
+      } catch(e) {
+        console.log("Audio ready on user interaction");
+      }
+    }
+
+    /* ==========================================================================
+       4. RETRO SYNTH MUSIC PLAYER ("BOY IN LOVE")
+       ========================================================================== */
+    async function toggleMusic() {
+      if (!isPlayingMusic) {
+        await Tone.start();
+        startBoyInLoveTune();
+        isPlayingMusic = true;
+        updateMusicUI(true);
+      } else {
+        stopBoyInLoveTune();
+        isPlayingMusic = false;
+        updateMusicUI(false);
+      }
+    }
+
+    function startBoyInLoveTune() {
+      // Upbeat 1950s style synth rhythm
+      const bassSynth = new Tone.Synth({
+        oscillator: { type: "triangle" },
+        envelope: { attack: 0.02, decay: 0.2, sustain: 0.2, release: 0.4 }
+      }).toDestination();
+      bassSynth.volume.value = -6;
+
+      synth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: { type: "sawtooth" },
+        envelope: { attack: 0.05, decay: 0.3, sustain: 0.5, release: 0.8 }
+      }).toDestination();
+      synth.volume.value = -8;
+
+      // "Boy in Love" upbeat groove pattern
+      const leadNotes = [
+        { note: "E4", duration: "8n", time: 0 },
+        { note: "G#4", duration: "8n", time: 0.25 },
+        { note: "B4", duration: "8n", time: 0.5 },
+        { note: "C#5", duration: "4n", time: 0.75 },
+
+        { note: "B4", duration: "8n", time: 1.5 },
+        { note: "G#4", duration: "8n", time: 1.75 },
+        { note: "E4", duration: "4n", time: 2.0 },
+
+        { note: "F#4", duration: "8n", time: 2.75 },
+        { note: "A4", duration: "8n", time: 3.0 },
+        { note: "C#5", duration: "4n", time: 3.25 },
+
+        { note: "B4", duration: "2n", time: 4.0 }
+      ];
+
+      const leadPart = new Tone.Part((time, value) => {
+        synth.triggerAttackRelease(value.note, value.duration, time);
+      }, leadNotes);
+
+      leadPart.loop = true;
+      leadPart.loopEnd = "5.0s";
+
+      Tone.Transport.start();
+      leadPart.start(0);
+
+      // Synced Lyrics Rotation
+      lyricInterval = setInterval(() => {
+        lyricIndex = (lyricIndex + 1) % songLyrics.length;
+        document.getElementById('lyrics-display').innerText = songLyrics[lyricIndex];
+      }, 3200);
+
+      // Playback Timer Simulation
+      secondsElapsed = 0;
+      songProgressInterval = setInterval(() => {
+        secondsElapsed = (secondsElapsed + 1) % 40;
+        const progressPercent = (secondsElapsed / 40) * 100;
+        document.getElementById('song-progress').style.width = `${progressPercent}%`;
+        document.getElementById('song-timer').innerText = `0:${secondsElapsed < 10 ? '0' : ''}${secondsElapsed}`;
+      }, 1000);
+    }
+
+    function stopBoyInLoveTune() {
+      Tone.Transport.stop();
+      Tone.Transport.cancel();
+      if (lyricInterval) clearInterval(lyricInterval);
+      if (songProgressInterval) clearInterval(songProgressInterval);
+      document.getElementById('song-progress').style.width = '0%';
+      document.getElementById('song-timer').innerText = '0:00';
+    }
+
+    function updateMusicUI(playing) {
+      const mainBtnIcon = document.getElementById('main-play-icon');
+      const quickBtnText = document.getElementById('quick-music-text');
+      const waveContainer = document.getElementById('wave-container');
+      const vinylDisc = document.getElementById('vinyl-disc');
+
+      if (playing) {
+        mainBtnIcon.className = 'fa-solid fa-pause';
+        quickBtnText.innerText = 'Pause Anthem 🎵';
+        waveContainer.classList.add('playing');
+        vinylDisc.classList.add('animate-spin');
+      } else {
+        mainBtnIcon.className = 'fa-solid fa-play ml-1';
+        quickBtnText.innerText = 'Play Birthday Anthem 🎵';
+        waveContainer.classList.remove('playing');
+        vinylDisc.classList.remove('animate-spin');
+      }
+    }
+
+    /* ==========================================================================
+       5. MEMORY MODAL & PHOTO UPLOAD LOGIC
+       ========================================================================== */
+    function openMemoryModal(index) {
+      currentModalIndex = index;
+      const data = memoryData[index];
+      document.getElementById('modal-img').src = data.image;
+      document.getElementById('modal-title').innerText = data.title;
+      document.getElementById('modal-desc').innerText = data.desc;
+      
+      const modal = document.getElementById('memory-modal');
+      modal.classList.remove('hidden');
+      
+      confetti({ particleCount: 35, spread: 50, origin: { y: 0.5 } });
+    }
+
+    function closeMemoryModal() {
+      document.getElementById('memory-modal').classList.add('hidden');
+    }
+
+    function uploadCustomPhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const newImgUrl = e.target.result;
+          memoryData[currentModalIndex].image = newImgUrl;
+          document.getElementById('modal-img').src = newImgUrl;
+          document.getElementById(`img-slot-${currentModalIndex}`).src = newImgUrl;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    /* ==========================================================================
+       6. UNFOLDING LETTER LOGIC
+       ========================================================================== */
+    function toggleLetter() {
+      const content = document.getElementById('letter-content');
+      const status = document.getElementById('letter-status');
+      const subtext = document.getElementById('letter-subtext');
+      const icon = document.getElementById('envelope-icon');
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        status.innerText = "Letter Unfolded!";
+        subtext.innerText = "Read your romantic note below 💕";
+        icon.innerHTML = '<i class="fa-solid fa-envelope-open text-yellow-100"></i>';
+        triggerPartyPopper();
+      } else {
+        content.classList.add('hidden');
+        status.innerText = "Tap To Unfold Love Note";
+        subtext.innerText = "Sealed with infinite affection & hugs 💖";
+        icon.innerHTML = '<i class="fa-solid fa-envelope-open-text"></i>';
+      }
+    }
+
+    /* ==========================================================================
+       7. CAKE CANDLE BLOWING LOGIC
+       ========================================================================== */
+    function blowOutCandle(candleEl) {
+      const flame = candleEl.querySelector('.flame');
+      if (flame && flame.style.display !== 'none') {
+        flame.style.display = 'none';
+        
+        const allFlames = document.querySelectorAll('.flame');
+        const activeFlames = Array.from(allFlames).filter(f => f.style.display !== 'none');
+        
+        if (activeFlames.length === 0) {
+          confetti({
+            particleCount: 160,
+            spread: 100,
+            origin: { y: 0.4 },
+            colors: ['#FFD1DC', '#FF4D6D', '#FFF5BA', '#9370DB']
+          });
+        }
+      }
+    }
+
+    function relightCandles() {
+      const flames = document.querySelectorAll('.flame');
+      flames.forEach(flame => flame.style.display = 'block');
+    }
+
+    /* ==========================================================================
+       8. COMPLIMENT / LOVE CARD GENERATOR
+       ========================================================================== */
+    function generateSurprise() {
+      const randomItem = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+      const emojiEl = document.getElementById('gift-emoji');
+      const textEl = document.getElementById('gift-text');
+
+      emojiEl.innerText = randomItem.emoji;
+      textEl.innerText = randomItem.text;
+
+      confetti({ particleCount: 30, spread: 45, origin: { y: 0.8 } });
+    }
+
+    /* Initialize background stickers on page load */
+    window.onload = function() {
+      initFloatingStickers();
+    };
+  </script>
+</body>
+</html>
